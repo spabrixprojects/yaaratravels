@@ -24,16 +24,10 @@ export default function DestinationsPage() {
 
     return TOUR_PACKAGES.filter((pkg) => {
       if (isIndia) {
-        return (
-          pkg.categories.includes("India") ||
-          indianDestinations.includes(pkg.destination.toLowerCase())
-        );
+        return pkg.categories.includes("India");
       }
       if (isInternational) {
-        return (
-          pkg.categories.includes("International") ||
-          !indianDestinations.includes(pkg.destination.toLowerCase())
-        );
+        return pkg.categories.includes("International");
       }
       return pkg.categories.includes(activeCategory);
     });

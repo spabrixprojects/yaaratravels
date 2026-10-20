@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Inter, Montserrat, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,6 +14,20 @@ const playfair = Playfair_Display({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-outfit",
   display: "swap",
 });
 
@@ -46,16 +60,16 @@ export const metadata: Metadata = {
     siteName: BRAND.name,
     images: [
       {
-        url: "/yaara-logo.png",
-        width: 1024,
-        height: 681,
+        url: "/logor.png",
+        width: 1983,
+        height: 793,
         alt: `${BRAND.name} Logo`,
       },
     ],
   },
   icons: {
-    icon: "/yaara-logo.png",
-    apple: "/yaara-logo.png",
+    icon: "/logor.png",
+    apple: "/logor.png",
   },
 };
 
@@ -65,7 +79,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${inter.variable} ${montserrat.variable} ${outfit.variable}`}
+    >
       <body className="min-h-screen flex flex-col font-sans antialiased text-[#1f2226] bg-[#fdfbf7]">
         <Header />
         <main className="flex-1">{children}</main>

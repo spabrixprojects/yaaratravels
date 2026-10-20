@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BRAND, DESTINATIONS } from "@/lib/content";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 function InstagramIcon() {
   return (
@@ -21,31 +22,30 @@ function FacebookIcon() {
   );
 }
 
-
-
 export default function Footer() {
   return (
     <footer className="bg-[#0b0c0e] text-[#a4abb8] pt-16 pb-10 border-t border-[#1e2026]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-[#1c1d22]">
           {/* Col 1: Brand Info & Socials */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="lg:col-span-4 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-13 h-10 shrink-0 flex items-center justify-center">
+              <div className="relative w-12 h-12 shrink-0 flex items-center justify-center">
                 <Image
-                  src={BRAND.logo}
+                  src="/yaaralogo.png"
                   alt="YAARA TRAVELS Logo"
                   fill
-                  sizes="56px"
-                  className="object-contain brightness-125"
+                  sizes="48px"
+                  className="object-contain brightness-125 group-hover:scale-105 transition-transform"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-serif font-bold text-white tracking-wide">
-                  YAARA TRAVELS
+              <div className="flex flex-col justify-center select-none">
+                <span className="font-['Montserrat',sans-serif] tracking-tight text-[#ff3344] group-hover:text-white transition-colors leading-none text-xl">
+                  <span className="font-black">YAARA</span>{" "}
+                  <span className="font-medium">TRAVELS</span>
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.24em] text-[#bd933f] font-medium">
-                  {BRAND.tagline}
+                <span className="font-['Outfit',sans-serif] font-medium tracking-normal text-[#ff6675] text-[10.5px] mt-0.5 leading-tight">
+                  Beyond the Journey
                 </span>
               </div>
             </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
                 href={BRAND.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#282a33] flex items-center justify-center text-[#8e95a5] hover:text-white hover:border-[#8B1D2C] hover:bg-[#8B1D2C] transition-all"
+                className="w-8 h-8 rounded-full border border-[#282a33] flex items-center justify-center text-[#8e95a5] hover:text-white hover:border-[#CD141D] hover:bg-[#CD141D] transition-all"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -69,7 +69,7 @@ export default function Footer() {
                 href={BRAND.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-[#282a33] flex items-center justify-center text-[#8e95a5] hover:text-white hover:border-[#8B1D2C] hover:bg-[#8B1D2C] transition-all"
+                className="w-8 h-8 rounded-full border border-[#282a33] flex items-center justify-center text-[#8e95a5] hover:text-white hover:border-[#CD141D] hover:bg-[#CD141D] transition-all"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -77,8 +77,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Explore */}
-          <div className="lg:col-span-3 flex flex-col gap-3">
+          {/* Col 2: Quick Links */}
+          <div className="lg:col-span-2 flex flex-col gap-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
               Explore
             </h4>
@@ -112,12 +112,12 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Popular Destinations */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
+          <div className="lg:col-span-2 flex flex-col gap-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
-              Popular Destinations
+              Destinations
             </h4>
             <ul className="flex flex-col gap-2 text-xs text-[#8e95a5]">
-              {DESTINATIONS.map((dest) => (
+              {DESTINATIONS.slice(0, 5).map((dest) => (
                 <li key={dest.id}>
                   <Link
                     href="/destinations"
@@ -129,12 +129,97 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Col 4: Contact & Office Details */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white">
+              Contact & Office
+            </h4>
+
+            {/* Visit Our Office */}
+            <div className="flex items-start gap-2.5 text-xs text-[#8e95a5]">
+              <MapPin className="w-4 h-4 text-[#CD141D] shrink-0 mt-0.5" />
+              <div className="flex flex-col leading-relaxed">
+                <span className="font-semibold text-white">Visit Our Office</span>
+                <span className="text-[#a4abb8] mt-0.5">
+                  YAARA TRAVELS, Kizhipilly Towers, Opp. Peechi&apos;s Hospital, Peechi Road, Thrissur – 680652, Kerala, India
+                </span>
+              </div>
+            </div>
+
+            {/* Call Us */}
+            <div className="flex items-start gap-2.5 text-xs text-[#8e95a5]">
+              <Phone className="w-4 h-4 text-[#CD141D] shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-0.5">
+                <span className="font-semibold text-white">Call Us</span>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
+                  <a
+                    href="tel:04872999522"
+                    className="text-[#a4abb8] hover:text-white transition-colors"
+                  >
+                    0487 2999522 <span className="text-[#626875] text-[11px]">(Office)</span>
+                  </a>
+                  <a
+                    href="tel:8606555538"
+                    className="text-[#a4abb8] hover:text-white transition-colors"
+                  >
+                    8606555538 <span className="text-[#626875] text-[11px]">(Holidays)</span>
+                  </a>
+                  <a
+                    href="tel:9526708000"
+                    className="text-[#a4abb8] hover:text-white transition-colors"
+                  >
+                    9526708000 <span className="text-[#626875] text-[11px]">(24/7 Support)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* WhatsApp Direct */}
+            <div className="flex items-start gap-2.5 text-xs text-[#8e95a5]">
+              <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 mt-0.5" />
+              <div className="flex flex-col gap-0.5">
+                <span className="font-semibold text-white">WhatsApp Direct</span>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 mt-0.5">
+                  <a
+                    href="https://wa.me/918606555538"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#a4abb8] hover:text-[#25D366] transition-colors"
+                  >
+                    8606555538 <span className="text-[#626875] text-[11px]">(Primary)</span>
+                  </a>
+                  <a
+                    href="https://wa.me/919526708000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#a4abb8] hover:text-[#25D366] transition-colors"
+                  >
+                    9526708000 <span className="text-[#626875] text-[11px]">(Support)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Email Us */}
+            <div className="flex items-start gap-2.5 text-xs text-[#8e95a5]">
+              <Mail className="w-4 h-4 text-[#CD141D] shrink-0 mt-0.5" />
+              <div className="flex flex-col leading-relaxed">
+                <span className="font-semibold text-white">Email Us</span>
+                <a
+                  href="mailto:info@yaaratravels.com"
+                  className="text-[#a4abb8] hover:text-white transition-colors mt-0.5"
+                >
+                  info@yaaratravels.com
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#626875]">
           <p>{BRAND.copyright}</p>
-        
         </div>
       </div>
     </footer>

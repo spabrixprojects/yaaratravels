@@ -67,34 +67,35 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
             <div
               className={`relative flex items-center justify-center shrink-0 transition-all duration-300 ${
-                scrolled ? "w-10 h-7 sm:w-12 sm:h-8" : "w-12 h-9 sm:w-14 sm:h-10"
+                scrolled ? "w-10 h-10 sm:w-11 sm:h-11" : "w-12 h-12 sm:w-13 sm:h-13"
               }`}
             >
               <Image
-                src={BRAND.logo}
+                src="/yaaralogo.png"
                 alt="YAARA TRAVELS Logo"
                 fill
                 sizes="56px"
-                className="object-contain"
+                className="object-contain group-hover:scale-105 transition-transform"
                 priority
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center select-none">
               <span
-                className={`font-serif font-bold tracking-tight text-[#8B1D2C] group-hover:text-[#67111F] transition-all leading-none ${
-                  scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
+                className={`font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] group-hover:text-[#b01018] transition-colors leading-none ${
+                  scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-[22px]"
                 }`}
               >
-                YAARA TRAVELS
+                <span className="font-black">YAARA</span>{" "}
+                <span className="font-medium">TRAVELS</span>
               </span>
               <span
-                className={`uppercase tracking-[0.2em] text-[#717786] font-medium transition-all ${
+                className={`font-['Outfit',sans-serif] font-medium tracking-normal text-[#CD141D] transition-all leading-tight ${
                   scrolled
-                    ? "text-[8px] sm:text-[9px] mt-0.5"
-                    : "text-[9px] sm:text-[10px] mt-0.5"
+                    ? "text-[9px] sm:text-[10px] mt-0.5"
+                    : "text-[10px] sm:text-[11.5px] mt-0.5"
                 }`}
               >
-                {BRAND.tagline}
+                Beyond the Journey
               </span>
             </div>
           </Link>
@@ -165,25 +166,26 @@ export default function Header() {
               {/* Top Bar with Brand & Close Button */}
               <div>
                 <div className="flex items-center justify-between pb-5 border-b border-[#e9e1d3]">
-                  <div className="flex items-center gap-2.5">
-                    <div className="relative w-11 h-8 shrink-0 flex items-center justify-center">
+                  <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2.5">
+                    <div className="relative w-10 h-8 shrink-0 flex items-center justify-center">
                       <Image
-                        src={BRAND.logo}
+                        src="/yaaralogo.png"
                         alt="YAARA TRAVELS Logo"
                         fill
-                        sizes="44px"
+                        sizes="40px"
                         className="object-contain"
                       />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-serif font-bold tracking-tight text-[#8B1D2C] text-base leading-none">
-                        YAARA TRAVELS
+                    <div className="flex flex-col justify-center">
+                      <span className="font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] leading-none text-base">
+                        <span className="font-black">YAARA</span>{" "}
+                        <span className="font-medium">TRAVELS</span>
                       </span>
-                      <span className="text-[8px] uppercase tracking-[0.2em] text-[#717786] font-medium mt-0.5">
-                        {BRAND.tagline}
+                      <span className="font-['Outfit',sans-serif] font-medium text-[#CD141D] text-[9.5px] mt-0.5 leading-tight">
+                        Beyond the Journey
                       </span>
                     </div>
-                  </div>
+                  </Link>
 
                   <button
                     onClick={() => setMobileMenuOpen(false)}

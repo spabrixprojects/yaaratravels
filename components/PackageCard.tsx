@@ -84,13 +84,15 @@ export default function PackageCard({ pkg, priority = false }: PackageCardProps)
         <div className="pt-4 border-t border-[#f3f4f6] flex items-center justify-between gap-3">
           <div>
             <span className="block text-[10px] uppercase tracking-wider text-[#9ca3af] font-medium">
-              Starting From
+              {pkg.price && !pkg.price.toLowerCase().includes("request") ? "Starting From" : "Pricing"}
             </span>
             <div className="flex items-baseline gap-1">
               <span className="text-xl sm:text-2xl font-serif font-bold text-[#8B1D2C]">
-                {pkg.price}
+                {pkg.price || "On Request"}
               </span>
-              <span className="text-[10px] text-[#6b7280]">/ person</span>
+              {pkg.price && !pkg.price.toLowerCase().includes("request") && (
+                <span className="text-[10px] text-[#6b7280]">/ person</span>
+              )}
             </div>
           </div>
 

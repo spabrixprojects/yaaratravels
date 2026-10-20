@@ -348,6 +348,49 @@ export default function ContactContent() {
             </div>
           </div>
         </div>
+
+        {/* Location Map Section */}
+        <div className="mt-12 sm:mt-16">
+          <div className="bg-white rounded-3xl p-4 sm:p-6 border border-[#e9e1d3] shadow-lg overflow-hidden">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 px-2">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#9E7832] font-sans block mb-1">
+                  LOCATION &amp; DIRECTIONS
+                </span>
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#141517]">
+                  Find Us on the Map
+                </h2>
+                <p className="text-xs text-[#626875] mt-0.5">
+                  YAARA TRAVELS, Kizhipilly Towers, Opp. Peechi&apos;s Hospital, Peechi Road, Thrissur – 680652, Kerala
+                </p>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=YAARA+TRAVELS+Kizhipilly+Towers+Peechi+Road+Thrissur+Kerala+680652"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#8B1D2C] hover:bg-[#6e1421] text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-colors shadow-xs shrink-0"
+              >
+                <MapPin className="w-3.5 h-3.5" />
+                <span>Get Directions</span>
+              </a>
+            </div>
+
+            <div className="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden border border-[#e9e1d3] bg-[#faf7f2]">
+              <iframe
+                title="YAARA TRAVELS Location Map"
+                src="https://maps.google.com/maps?q=Kizhipilly%20Towers%2C%20Opp.%20Peechi's%20Hospital%2C%20Peechi%20Road%2C%20Thrissur%2C%20Kerala%20680652&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

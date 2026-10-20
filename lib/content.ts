@@ -13,8 +13,8 @@ export interface TourPackage {
   title: string;
   destination: string;
   duration: string;
-  price: string;
-  priceNum: number;
+  price?: string;
+  priceNum?: number;
   categories: string[];
   image: string;
   description: string;
@@ -39,7 +39,7 @@ export const BRAND = {
   name: "YAARA TRAVELS",
   tagline: "Beyond the Journey",
   establishedTagline: "Rooted in Thrissur, Kerala — Redefining Travel with Trust & Passion",
-  logo: "/yaara-logo.png",
+  logo: "/yaaralogo.png",
   description:
     "Your trusted travel partner from the heart of Kerala. We craft unforgettable journeys for families and couples across India and beyond.",
   address: "YAARA TRAVELS, Kizhipilly Towers, Opp. Peechi's Hospital, Peechi Road, Thrissur – 680652, Kerala, India",
@@ -167,6 +167,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
       "Kathakali cultural show",
     ],
   },
+  
   {
     id: "royal-rajasthan-trail",
     title: "Royal Rajasthan Trail",
@@ -186,6 +187,159 @@ export const TOUR_PACKAGES: TourPackage[] = [
       "Camel safari at sunset",
     ],
   },
+  {
+    id: "gujarat",
+    title: "Gujarat Heritage Tour",
+    destination: "Gujarat",
+    duration: "5 Days / 4 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Heritage & Culture"],
+    image: "/gujarat-heritage.jpg",
+    description:
+      "Discover Gujarat's vibrant culture, ancient temples, and breathtaking landscapes, from the Statue of Unity to the white desert of Kutch.",
+    featured: true,
+    highlights: [
+      "Statue of Unity",
+      "Rann of Kutch",
+      "Somnath Temple",
+      "Dwarkadhish Temple",
+    ],
+  },
+  {
+    id: "hyderabad",
+    title: "Hyderabad City Escape",
+    destination: "Hyderabad",
+    duration: "3 Days / 2 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Heritage & Culture"],
+    image: "/hyderabad-city.jpg",
+    description:
+      "Explore Hyderabad's royal charm, historic monuments, vibrant bazaars, and famous culinary traditions.",
+    featured: true,
+    highlights: [
+      "Charminar & Laad Bazaar",
+      "Golconda Fort",
+      "Ramoji Film City",
+      "Hussain Sagar Lake",
+    ],
+  },
+  {
+    id: "mysore-bangalore",
+    title: "Mysore & Bangalore Explorer",
+    destination: "Mysore & Bangalore",
+    duration: "4 Days / 3 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "City & Culture"],
+    image: "/Mysore.jpg",
+    description:
+      "Experience Mysore's royal palaces and beautiful gardens alongside Bangalore's vibrant city life and green spaces.",
+    featured: true,
+    highlights: [
+      "Mysore Palace",
+      "Brindavan Gardens",
+      "Bangalore Palace",
+      "Lalbagh Botanical Garden",
+    ],
+  },
+  {
+    id: "wayanad",
+    title: "Wayanad Nature Retreat",
+    destination: "Wayanad",
+    duration: "3 Days / 2 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Nature & Adventure"],
+    image: "/wayanad-nature.jpg",
+    description:
+      "Escape to misty mountains, lush forests, spectacular waterfalls, and ancient caves in Kerala's beautiful highlands.",
+    featured: true,
+    highlights: [
+      "Edakkal Caves",
+      "Banasura Sagar Dam",
+      "Soochipara Waterfalls",
+      "Pookode Lake",
+    ],
+  },
+  {
+    id: "lakshadweep",
+    title: "Lakshadweep Island Paradise",
+    destination: "Lakshadweep",
+    duration: "4 Days / 3 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Beach & Island"],
+    image: "/lakshadweep-islands.jpg",
+    description:
+      "Discover turquoise lagoons, pristine white-sand beaches, vibrant coral reefs, and unforgettable tropical island adventures.",
+    featured: true,
+    highlights: [
+      "Agatti Island",
+      "Bangaram Island",
+      "Snorkelling Adventures",
+      "Glass-bottom Boat Experience",
+    ],
+  },
+  {
+    id: "delhi-agra-jaipur",
+    title: "Delhi - Agra - Jaipur Heritage Tour",
+    destination: "Delhi- Agra-Jaipur",
+    duration: "6 Days / 5 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Heritage & Culture"],
+    image: "/Delhi.webp",
+    description:
+      "Journey through India's legendary Golden Triangle, exploring historic Delhi, the timeless Taj Mahal in Agra, and Jaipur's magnificent royal architecture.",
+    featured: true,
+    highlights: [
+      "India Gate & Qutub Minar",
+      "Taj Mahal & Agra Fort",
+      "Amber Fort, Jaipur",
+      "Hawa Mahal",
+    ],
+  },
+  {
+    id: "sikkim-darjeeling",
+    title: "Sikkim and Darjeeling Himalayan Escape",
+    destination: "Sikkim and dargling",
+    duration: "6 Days / 5 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Mountains & Nature"],
+    image: "/Sikkim.jpg",
+    description:
+      "Explore breathtaking Himalayan landscapes, peaceful monasteries, scenic tea gardens, and unforgettable mountain sunrises.",
+    featured: true,
+    highlights: [
+      "Tsomgo Lake",
+      "Nathula Pass",
+      "Tiger Hill Sunrise",
+      "Darjeeling Himalayan Railway",
+    ],
+  },
+  {
+    id: "meghalaya-assam",
+    title: "Meghalaya and Assam Discovery",
+    destination: "meghalaya and assam",
+    duration: "7 Days / 6 Nights",
+    price: "On Request",
+    priceNum: 0,
+    categories: ["India", "Nature & Adventure"],
+    image: "/Meghalaya.avif",
+    description:
+      "Discover Meghalaya's living root bridges and spectacular waterfalls, explore the crystal-clear Dawki River, and experience Assam's rich wildlife and culture.",
+    featured: true,
+    highlights: [
+      "Cherrapunji Waterfalls",
+      "Double Decker Living Root Bridge",
+      "Dawki River",
+      "Kaziranga National Park",
+    ],
+  },
+  
   {
     id: "maldives-honeymoon-bliss",
     title: "Maldives Honeymoon Bliss",
