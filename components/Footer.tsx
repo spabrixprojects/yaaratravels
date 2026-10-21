@@ -39,12 +39,12 @@ export default function Footer() {
                   className="object-contain brightness-125 group-hover:scale-105 transition-transform"
                 />
               </div>
-              <div className="flex flex-col justify-center select-none">
-                <span className="font-['Montserrat',sans-serif] tracking-tight text-[#ff3344] group-hover:text-white transition-colors leading-none text-xl">
+              <div className="flex flex-col items-center justify-center select-none text-center">
+                <span className="font-['Montserrat',sans-serif] tracking-tight text-[#ff3344] group-hover:text-white transition-colors leading-none text-xl text-center">
                   <span className="font-black">YAARA</span>{" "}
                   <span className="font-medium">TRAVELS</span>
                 </span>
-                <span className="font-['Outfit',sans-serif] font-medium tracking-normal text-[#ff6675] text-[10.5px] mt-0.5 leading-tight">
+                <span className="font-['Outfit',sans-serif] font-medium tracking-normal text-[#ff6675] text-[10.5px] mt-0.5 leading-tight text-center">
                   Beyond the Journey
                 </span>
               </div>

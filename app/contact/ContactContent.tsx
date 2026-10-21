@@ -11,7 +11,6 @@ import {
   Users,
   MessageCircle,
   ArrowRight,
-  CheckCircle2,
   AlertCircle,
   Clock,
   ShieldCheck,
@@ -33,7 +32,6 @@ export default function ContactContent() {
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
 
   useEffect(() => {
@@ -53,16 +51,23 @@ export default function ContactContent() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.phone) {
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
       setFormError("Please fill in all required fields (Name, Email, Phone).");
       return;
     }
     setFormError("");
-    setSubmitted(true);
-  };
 
-  const handleWhatsAppSend = () => {
-    const text = `Hello Yaara Travels,%0A%0A*Name:* ${form.name || "Guest"}%0A*Phone:* ${form.phone}%0A*Email:* ${form.email}%0A*Destination:* ${form.destination}%0A*Date:* ${form.travelDate || "Flexible"}%0A*Travellers:* ${form.travellers}%0A*Message:* ${form.message || "Please share holiday details."}`;
+    const lines = [
+      `*Name:* ${form.name.trim()}`,
+      `*Phone:* ${form.phone.trim()}`,
+      `*Email:* ${form.email.trim()}`,
+      form.destination.trim() ? `*Destination:* ${form.destination.trim()}` : null,
+      form.travelDate.trim() ? `*Date:* ${form.travelDate.trim()}` : null,
+      form.travellers.trim() ? `*Travellers:* ${form.travellers.trim()}` : null,
+      form.message.trim() ? `*Message:* ${form.message.trim()}` : null,
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(lines.join("\n"));
     window.open(`https://wa.me/918606555538?text=${text}`, "_blank");
   };
 
@@ -214,35 +219,7 @@ export default function ContactContent() {
                 Fill in the details below and we will get back to you with custom quotes and options.
               </p>
 
-              {submitted ? (
-                <div className="text-center py-8 animate-in fade-in duration-300">
-                  <div className="w-14 h-14 rounded-full bg-[#fbf2f4] text-[#8B1D2C] flex items-center justify-center mx-auto mb-3">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg font-serif font-bold text-[#141517] mb-1">
-                    Enquiry Ready
-                  </h3>
-                  <p className="text-xs text-[#4a505a] mb-5 leading-relaxed max-w-sm mx-auto">
-                    Thank you, <strong className="text-[#8B1D2C]">{form.name}</strong>. Connect instantly via WhatsApp to receive quotes &amp; customized itinerary details immediately.
-                  </p>
-                  <button
-                    onClick={handleWhatsAppSend}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3 px-8 rounded-full text-xs uppercase tracking-wider mb-3 cursor-pointer transition-colors shadow-sm"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>Send Details on WhatsApp</span>
-                  </button>
-                  <div>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="text-xs text-[#6c7582] hover:underline cursor-pointer"
-                    >
-                      Fill another enquiry
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="flex flex-col gap-3.5">
+              <form onSubmit={handleFormSubmit} className="flex flex-col gap-3.5">
                   {formError && (
                     <div className="bg-red-50 text-red-600 text-xs p-2.5 rounded-lg border border-red-200 flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 shrink-0" />
@@ -344,7 +321,6 @@ export default function ContactContent() {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </form>
-              )}
             </div>
           </div>
         </div>

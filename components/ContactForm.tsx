@@ -84,20 +84,26 @@ export default function ContactForm() {
     return Object.keys(errs).length === 0;
   };
 
+  const handleWhatsAppDirect = () => {
+    const lines = [
+      `*Name:* ${form.fullName.trim()}`,
+      `*Phone:* ${form.phone.trim()}`,
+      `*Email:* ${form.email.trim()}`,
+      form.destination.trim() ? `*Destination/Package:* ${form.destination.trim()}` : null,
+      form.travelDates.trim() ? `*Travel Dates:* ${form.travelDates.trim()}` : null,
+      form.travellers.trim() ? `*Travellers:* ${form.travellers.trim()}` : null,
+      form.message.trim() ? `*Message:* ${form.message.trim()}` : null,
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(lines.join("\n"));
+    window.open(`https://wa.me/918606555538?text=${text}`, "_blank");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmittedData({ ...form });
-    }, 500);
-  };
-
-  const handleWhatsAppDirect = () => {
-    const text = `Hello Yaara Travels,%0A%0A*Name:* ${form.fullName || "Guest"}%0A*Phone:* ${form.phone || "Not specified"}%0A*Email:* ${form.email || "Not specified"}%0A*Destination/Package:* ${form.destination || "General Enquiry"}%0A*Travel Dates:* ${form.travelDates || "Flexible"}%0A*Travellers:* ${form.travellers || "2"}%0A*Message:* ${form.message || "Please share details."}`;
-    window.open(`https://wa.me/918606555538?text=${text}`, "_blank");
+    handleWhatsAppDirect();
   };
 
   if (submittedData) {

@@ -79,9 +79,9 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center select-none">
+            <div className="flex flex-col items-center justify-center select-none text-center">
               <span
-                className={`font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] group-hover:text-[#b01018] transition-colors leading-none ${
+                className={`font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] group-hover:text-[#b01018] transition-colors leading-none text-center ${
                   scrolled ? "text-lg sm:text-xl" : "text-xl sm:text-[22px]"
                 }`}
               >
@@ -89,7 +89,7 @@ export default function Header() {
                 <span className="font-medium">TRAVELS</span>
               </span>
               <span
-                className={`font-['Outfit',sans-serif] font-medium tracking-normal text-[#CD141D] transition-all leading-tight ${
+                className={`font-['Outfit',sans-serif] font-medium tracking-normal text-[#CD141D] transition-all leading-tight text-center ${
                   scrolled
                     ? "text-[9px] sm:text-[10px] mt-0.5"
                     : "text-[10px] sm:text-[11.5px] mt-0.5"
@@ -176,12 +176,12 @@ export default function Header() {
                         className="object-contain"
                       />
                     </div>
-                    <div className="flex flex-col justify-center">
-                      <span className="font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] leading-none text-base">
+                    <div className="flex flex-col items-center justify-center text-center">
+                      <span className="font-['Montserrat',sans-serif] tracking-tight text-[#CD141D] leading-none text-base text-center">
                         <span className="font-black">YAARA</span>{" "}
                         <span className="font-medium">TRAVELS</span>
                       </span>
-                      <span className="font-['Outfit',sans-serif] font-medium text-[#CD141D] text-[9.5px] mt-0.5 leading-tight">
+                      <span className="font-['Outfit',sans-serif] font-medium text-[#CD141D] text-[9.5px] mt-0.5 leading-tight text-center">
                         Beyond the Journey
                       </span>
                     </div>
